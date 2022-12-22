@@ -1,0 +1,4 @@
+.vscode
+build/
+link_server
+link_client
