@@ -1,0 +1,11 @@
+# Cmake files
+cmake-build-debug/
+build/
+
+# User specific files
+.vscode/
+.idea/
+
+# Project-related files
+link_server
+link_client

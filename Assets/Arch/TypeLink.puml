@@ -1,0 +1,277 @@
+@startuml TypeLink
+
+namespace TypeLink {
+    struct ServerInit {
+        + uint16_t portTcp;
+        + uint16_t portUdp;
+        + size_t maxConnections;
+        + struct TimeoutUdp timeoutUdp;
+        + struct TimeoutTcp timeoutTcp;
+    }
+
+    struct ClientInit {
+        + std::string ip;
+        + uint16_t portTcp;
+        + uint16_t portUdp;
+        + struct TimeoutUdp timeoutUdp;
+        + struct TimeoutTcp timeoutTcp;
+    }
+
+    struct TimeoutUdp {
+        + struct timeval timeoutRecvUdp;
+        + struct timeval timeoutSendUdp;
+    }
+
+    struct TimeoutTcp {
+        + struct timeval timeoutRecvTcp;
+        + struct timeval timeoutSendTcp;
+    }
+
+    enum PacketType {
+        + CONNECT
+        + DISCONNECT
+        + DATA
+        + PING
+    }
+
+    struct PacketHeader {
+        + uint8_t magic;
+        + PacketType type;
+        + uint16_t size;
+        + uint8_t ip[4];
+        + uint16_t port;
+    }
+
+    struct Packet {
+        + PacketHeader header;
+        + std::vector<uint8_t> data;
+    }
+
+    enum ConsoleType {
+        + INFO
+        + WARN
+        + ERROR
+    }
+
+    class Console {
+        ' private:
+            - bool _isQuiet;
+            - ssize_t _info;
+            - ssize_t _warn;
+            - ssize_t _error;
+            - std::vector<std::string> _history;
+            - std::unique_ptr<Exception> _exception;
+            - void print(consoleType type, std::string const &msg);
+            - std::string getLocalTime();
+            - void putHistory(std::string const &msg);
+        ' public:
+            + Console();
+            + Console(isQuiet);
+            + ~Console();
+            + void info(std::string const &msg);
+            + void warn(std::string const &msg);
+            + void error(std::string const &msg);
+            + Exception throwException(std::string const &msg);
+    }
+
+    class Exception {
+        ' private
+            - std::string _msg;
+        ' public
+            + Exception(std::string const &msg);
+            + ~Exception() throw();
+            + const char *what() const throw();
+    }
+
+    class PacketManager {
+        ' protected:
+            # std::shared_ptr<Console> _console;
+        ' public:
+            + PacketManager();
+            + PacketManager(std::shared_ptr<Console> console);
+            + ~PacketManager();
+            + std::shared_ptr<Packet> createPacket(void *data);
+            + void *extractData(std::shared_ptr<Packet> packet);
+            + void printInfoPacket(std::shared_ptr<Packet> packet);
+    }
+
+    class Network {
+        ' protected:
+            # std::shared_ptr<Console> _console;
+            # int _sock;
+            # struct sockaddr_in _sin;
+            # fd_set _rdfd;
+            # fd_set _wdfd;
+            # void setSocket(int sock);
+            # void closeSocket();
+            # void resetSocket();
+            # void tcpSendPacket(int sock, std::shared_ptr<Packet> data);
+            # void udpSendPacket(int sock, std::shared_ptr<Packet> data);
+            # std::shared_ptr<Packet> tcpReceivePacket(int sock);
+            # std::shared_ptr<Packet> udpReceivePacket(int sock);
+        ' public:
+            + Network(std::shared_ptr<Console> console);
+            + ~Network();
+    }
+
+    class CommunicationUDP {
+        ' protected:
+            # struct timeval _timeoutRecvUdp;
+            # struct timeval _timeoutSendUdp;
+            # void sendComUdpPacketTo(int sock, std::shared_ptr<Packet> data);
+            # std::shared_ptr<Packet> recvComUdpPacket(int sock);
+        ' public:
+            + CommunicationUDP(std::shared_ptr<Console> console);
+            + ~CommunicationUDP();
+            + void closeUdpSocket();
+    }
+
+    class CommunicationTCP {
+        ' protected:
+            # struct timeval _timeoutRecvTcp;
+            # struct timeval _timeoutSendTcp;
+            # void sendComTcpPacketTo(int sock, std::shared_ptr<Packet> data);
+            # std::shared_ptr<Packet> recvComTcpPacketFrom(int sock);
+        ' public:
+            + CommunicationTCP(std::shared_ptr<Console> console);
+            + ~CommunicationTCP();
+            + void closeTcpSocket();
+    }
+
+    class Connection {
+        ' public:
+            + Connection(std::shared_ptr<Console> console);
+            + Connection(int sock, struct sockaddr_in sin, std::shared_ptr<Console> console);
+            + ~Connection();
+            + int getSocket();
+            + std::string getIp();
+            + uint16_t getPort();
+            + struct sockaddr_in getSockaddrIn();
+            + void setSocket(int sock);
+            + void setIp(std::string ip);
+            + void setPort(uint16_t port);
+            + void setAddress(struct sockaddr_in sin);
+            + void resetFdSet(fd_set *rdfd, fd_set *wdfd);
+            + void closeConnection();
+    }
+
+    class ServerUDP {
+        ' protected:
+            # uint16_t _portUdp;
+            # void resetUdpFdSet();
+        ' public:
+            + ServerUDP();
+            + ServerUDP(std::shared_ptr<Console> console);
+            + ServerUDP(uint16_t port);
+            + ServerUDP(uint16_t port, std::shared_ptr<Console> console);
+            + ServerUDP(uint16_t port, TimeoutUdp timeoutUdp);
+            + ServerUDP(uint16_t port, TimeoutUdp timeoutUdp, std::shared_ptr<Console> console);
+            + ~ServerUDP();
+            + void initUdpSocket();
+            + void sendUdpPacketTo(int sock, std::shared_ptr<Packet> data);
+            + std::shared_ptr<Packet> recvUdpPacket();
+    }
+
+    class ServerTCP {
+        ' protected:
+            # uint16_t _portTcp;
+            # uint16_t _maxFd;
+            # size_t _maxConnections;
+            # std::shared_ptr<std::vector<std::shared_ptr<Connection>>> _connections;
+            # void resetTcpFdSet();
+        ' public:
+            + ServerTCP();
+            + ServerTCP(std::shared_ptr<Console> console);
+            + ServerTCP(uint16_t port, size_t maxConnections);
+            + ServerTCP(uint16_t port, size_t maxConnections, std::shared_ptr<Console> console);
+            + ServerTCP(uint16_t port, size_t maxConnections, TimeoutTcp timeoutTcp);
+            + ServerTCP(uint16_t port, size_t maxConnections, TimeoutTcp timeoutTcp, std::shared_ptr<Console> console);
+            + ~ServerTCP();
+            + void initTcpSocket();
+            + void acceptTcpConnection();
+            + std::shared_ptr<std::vector<std::shared_ptr<Connection>>> getTcpConnections();
+            + void sendTcpPacketTo(int sock, std::shared_ptr<Packet> data);
+            + void sendTcpPacketToAll(std::shared_ptr<Packet> data);
+            + std::shared_ptr<Packet> recvTcpPacketFrom(int sock);
+            + void removeTcpConnection(int sock);
+            + void removeAllTcpConnections();
+    }
+
+    class Server {
+        ' public:
+            + Server();
+            + Server(std::shared_ptr<Console> console);
+            + Server(uint16_t portTcp, uint16_t portUdp, size_t maxConnections, std::shared_ptr<Console> console);
+            + Server(ServerInit init, std::shared_ptr<Console> console);
+            + ~Server();
+    }
+
+    class ClientUDP {
+        ' protected:
+            # struct timeval _timeoutRecvUdp;
+            # struct timeval _timeoutSendUdp;
+            # std::string _ipUdp;
+            # uint16_t _portUdp;
+            # void resetUdpFdSet();
+        ' public:
+            + ClientUDP();
+            + ClientUDP(std::shared_ptr<Console> console);
+            + ClientUDP(std::string ip, uint16_t port);
+            + ClientUDP(std::string ip, uint16_t port, std::shared_ptr<Console> console);
+            + ClientUDP(std::string ip, uint16_t port, TimeoutUdp timeoutUdp);
+            + ClientUDP(std::string ip, uint16_t port, TimeoutUdp timeoutUdp, std::shared_ptr<Console> console);
+            + ~ClientUDP();
+            + void initUdpSocket();
+            + void sendUdpPacket(std::shared_ptr<Packet> data);
+            + std::shared_ptr<Packet> recvUdpPacket();
+    }
+
+    class ClientTCP {
+        ' protected:
+            # struct timeval _timeoutRecvTcp;
+            # struct timeval _timeoutSendTcp;
+            # std::string _ipTcp;
+            # uint16_t _portTcp;
+            # void resetTcpFdSet();
+        ' public:
+            + ClientTCP();
+            + ClientTCP(std::shared_ptr<Console> console);
+            + ClientTCP(std::string ip, uint16_t port);
+            + ClientTCP(std::string ip, uint16_t port, std::shared_ptr<Console> console);
+            + ClientTCP(std::string ip, uint16_t port, TimeoutTcp timeoutTcp);
+            + ClientTCP(std::string ip, uint16_t port, TimeoutTcp timeoutTcp, std::shared_ptr<Console> console);
+            + ~ClientTCP();
+            + void initTcpSocket();
+            + void connectTcpSocket();
+            + void sendTcpPacket(std::shared_ptr<Packet> data);
+            + std::shared_ptr<Packet> recvTcpPacket();
+    }
+
+    class Client {
+        ' public:
+            + Client();
+            + Client(std::shared_ptr<Console> console);
+            + Client(std::string ip, uint16_t portTcp, uint16_t portUdp, std::shared_ptr<Console> console);
+            + Client(ClientInit init, std::shared_ptr<Console> console);
+            + ~Client();
+    }
+
+    Network <|-- Connection
+
+    Network <|-- CommunicationUDP
+    Network <|-- CommunicationTCP
+
+    CommunicationUDP <|-- ServerUDP
+    CommunicationUDP <|-- ClientUDP
+
+    CommunicationTCP <|-- ServerTCP
+    CommunicationTCP <|-- ClientTCP
+
+    ServerUDP <|-- Server
+    ServerTCP <|-- Server
+
+    ClientUDP <|-- Client
+    ClientTCP <|-- Client
+}
+
+@enduml
