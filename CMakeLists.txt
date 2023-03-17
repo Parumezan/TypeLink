@@ -77,4 +77,4 @@ add_library(${LIBRARY} ${LIBRARY_SRC})
 install(TARGETS ${LIBRARY})
 
 #link library
-target_include_directories(${PROJECT_NAME} PUBLIC ${LIBRARY_ROOT})
+target_include_directories(${PROJECT_NAME} PUBLIC ${LIBRARY_INC})

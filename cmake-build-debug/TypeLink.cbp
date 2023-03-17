@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TypeLink"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TypeLink">
+				<Option output="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/libTypeLink.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Communication"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/PacketManager"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Connection"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Console"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Exception"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Network"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink"/>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 TypeLink"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TypeLink/fast">
+				<Option output="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/libTypeLink.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Communication"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/PacketManager"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Connection"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Console"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Exception"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Network"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library"/>
+					<Add directory="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink"/>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 TypeLink/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client/Client.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client/Client.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client/ClientTcp.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client/ClientTcp.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client/ClientUdp.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Client/ClientUdp.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Communication/CommunicationTcp.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Communication/CommunicationTcp.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Communication/CommunicationUdp.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Communication/CommunicationUdp.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Connection/Connection.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Connection/Connection.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Console/Console.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Console/Console.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Exception/Exception.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Exception/Exception.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Network/Network.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Network/Network.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/PacketManager/PacketManager.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/PacketManager/PacketManager.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server/Server.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server/Server.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server/ServerTcp.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server/ServerTcp.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server/ServerUdp.cpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/TypeLink/Library/Server/ServerUdp.hpp">
+			<Option target="TypeLink"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Louis/Desktop/TypeLink/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
