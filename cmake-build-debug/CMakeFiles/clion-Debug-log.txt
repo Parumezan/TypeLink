@@ -1,4 +1,0 @@
-C:\WINDOWS\system32\wsl.exe --distribution Debian --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug && /usr/local/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /mnt/c/Users/Louis/Desktop/TypeLink -B /mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug; exitcode=$?; sleep 0.001; (exit $exitcode)"
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/c/Users/Louis/Desktop/TypeLink/cmake-build-debug
